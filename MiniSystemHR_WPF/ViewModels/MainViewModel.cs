@@ -105,6 +105,8 @@ namespace MiniSystemHR_WPF.ViewModels
             }
             else
             {
+                var loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
                 RefreshEmployees();
                 InitGroups();
             }

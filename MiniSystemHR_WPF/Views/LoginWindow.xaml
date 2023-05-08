@@ -1,0 +1,64 @@
+﻿<Window x:Class="MiniSystemHR_WPF.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiniSystemHR_WPF.Views"
+         xmlns:converters="clr-namespace:MiniSystemHR_WPF.Model.Converters"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="400" Width="400"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Name="LoginWindowView">
+    <Window.Resources>
+        <converters:LoginParamsConverter x:Key="loginParamsConverter"/>
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="orange"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#ff202020">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1">
+            <Label Content="Login"/>
+            <TextBox Margin="50,10,50,0" FontSize="20" Background="Transparent" Foreground="Gainsboro" HorizontalContentAlignment="Center"
+                 Text="{Binding LoginSettings.Login, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Label Content="Hasło"/>
+            <PasswordBox
+                
+                Name="PasswordBox"
+                Margin="50,10,50,0"
+                FontSize="20" 
+                Background="Transparent"
+                Foreground="Gainsboro"
+                HorizontalContentAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" VerticalAlignment="Center">
+            <Button Command="{Binding ConfirmCommand}" Content="Zaloguj" Height="30" Width="100" Margin="10" Foreground="Green" Background="Transparent">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource loginParamsConverter}">
+                        <Binding ElementName="LoginWindowView" />
+                        <Binding ElementName="PasswordBox" />
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Command="{Binding ExitCommand}" Content="Zakończ" Height="30" Width="100" Margin="10" Foreground="red" Background="Transparent"/>
+        </StackPanel>
+
+    </Grid>    
+</Window>

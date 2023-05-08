@@ -49,7 +49,6 @@ namespace MiniSystemHR_WPF.ViewModels
                 return;
 
             _repository.SaveSettings(UserSettings);
-            //UserSettings.SaveSettings();
             RestartApp();
         }
 

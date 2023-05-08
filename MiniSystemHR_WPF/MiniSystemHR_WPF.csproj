@@ -82,20 +82,32 @@
     <Compile Include="Model\Configurations\GroupConfiguration.cs" />
     <Compile Include="Model\Configurations\SettingsConfiguration.cs" />
     <Compile Include="Model\Converters\EmployeeConverter.cs" />
+    <Compile Include="Model\Converters\LoginParamsConverter.cs" />
     <Compile Include="Model\Converters\SettingsConverter.cs" />
     <Compile Include="Model\Domains\Employee.cs" />
     <Compile Include="Model\Domains\EmployeedTime.cs" />
     <Compile Include="Model\Domains\Group.cs" />
+    <Compile Include="Model\LoginParams.cs" />
+    <Compile Include="Model\LoginSettings.cs" />
     <Compile Include="Model\UserSettings.cs" />
+    <Compile Include="Model\PasswordBoxAssistant.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="ViewModels\AddEditEmploeeViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserSettingsView.xaml.cs">
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AddEditEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
