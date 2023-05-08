@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using MiniSystemHR_WPF.Properties;
 
 namespace MiniSystemHR_WPF.ViewModels
 {
     internal class SettingsViewModel : ViewModelBase
     {
+        private Repository _repository = new Repository();
         public SettingsViewModel(bool closeWindow)
         {
             CancelCommand = new RelayCommand(Cancel);
@@ -46,7 +48,8 @@ namespace MiniSystemHR_WPF.ViewModels
             if (!UserSettings.IsValid)
                 return;
 
-            UserSettings.SaveSettings();            
+            _repository.SaveSettings(UserSettings);
+            //UserSettings.SaveSettings();
             RestartApp();
         }
 

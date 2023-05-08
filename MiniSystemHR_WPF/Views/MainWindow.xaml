@@ -46,7 +46,7 @@
                 Height="50"/>
             <Button
                 Command="{Binding DissmissEmployeeCommand}"
-                Content="Zwolnij pracownika"
+                Content="Zwolnij natychmiastowo"
                 Margin="5"
                 Height="50"/>
             <ComboBox 

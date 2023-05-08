@@ -25,7 +25,6 @@ namespace MiniSystemHR_WPF.ViewModels
 
         public MainViewModel()
         {
-            RefreshEmployees();
             AddEmployeeCommand = new RelayCommand(AddEditEmployee);
             EditEmployeeCommand = new RelayCommand(AddEditEmployee, CanEditDeleteEmployee);
             DissmissEmployeeCommand = new AsyncRelayCommand(DissmissEmployee, CanEditDeleteEmployee);
@@ -46,6 +45,7 @@ namespace MiniSystemHR_WPF.ViewModels
         private ObservableCollection<EmployeeWrapper> _employee;
         private int _selectedGroupId;
         private ObservableCollection<Group> _group;
+        private UserSettings _userSettings = new UserSettings();
 
         public int SelectedGroupId
         {
@@ -112,8 +112,7 @@ namespace MiniSystemHR_WPF.ViewModels
 
         private bool ConnectToDatabase()
         {
-            var connectionString = $@"Server={Settings.Default.AdressServer}\{Settings.Default.NameServer};Database={Settings.Default.DatabaseName};User Id={Settings.Default.User};Password={Settings.Default.Password};";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(GetConnectionString()))
             {
                 try
                 {
@@ -127,6 +126,12 @@ namespace MiniSystemHR_WPF.ViewModels
                 }
             }
         }
+
+        private string GetConnectionString()
+        {
+            return _repository.GetSettings(_userSettings.Id);
+        }
+
         private void RefreshEmployees(object obj)
         {
             RefreshEmployees();

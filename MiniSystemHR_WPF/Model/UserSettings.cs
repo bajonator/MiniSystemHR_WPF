@@ -11,65 +11,18 @@ namespace MiniSystemHR_WPF.Model
 {
     public class UserSettings : IDataErrorInfo
     {
-
         public int Id { get; set; }
         public int UserId { get; set; }
 
-        public string Address
-        {
-            get
-            {
-                return Settings.Default.AdressServer;
-            }
-            set
-            {
-                Settings.Default.AdressServer = value;
-            }
-        }
-        public string Server
-        {
-            get
-            {
-                return Settings.Default.NameServer;
-            }
-            set
-            {
-                Settings.Default.NameServer = value;
-            }
-        }
-        public string DatabaseName
-        {
-            get
-            {
-                return Settings.Default.DatabaseName;
-            }
-            set
-            {
-                Settings.Default.DatabaseName = value;
-            }
-        }
-        public string UserName
-        {
-            get
-            {
-                return Settings.Default.User;
-            }
-            set
-            {
-                Settings.Default.User = value;
-            }
-        }
-        public string Password
-        {
-            get
-            {
-                return Settings.Default.Password;
-            }
-            set
-            {
-                Settings.Default.Password = value;
-            }
-        }
+        public string Address { get; set; }
+
+        public string Server { get; set; }
+
+        public string DatabaseName { get; set; }
+
+        public string UserName { get; set; }
+
+        public string Password { get; set; }
         
 
         private bool _isAddressValid;
@@ -150,12 +103,10 @@ namespace MiniSystemHR_WPF.Model
                 return Error;
             }
         }
-
         public static void SaveSettings()
         {
             Settings.Default.Save();
         }
-
         public string Error { get; set; }
 
         public bool IsValid

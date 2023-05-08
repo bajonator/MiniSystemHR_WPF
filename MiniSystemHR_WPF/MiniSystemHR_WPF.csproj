@@ -80,7 +80,9 @@
     <Compile Include="Model\Configurations\EmployeeConfiguration.cs" />
     <Compile Include="Model\Configurations\EmployeedTimesConfiguration.cs" />
     <Compile Include="Model\Configurations\GroupConfiguration.cs" />
+    <Compile Include="Model\Configurations\SettingsConfiguration.cs" />
     <Compile Include="Model\Converters\EmployeeConverter.cs" />
+    <Compile Include="Model\Converters\SettingsConverter.cs" />
     <Compile Include="Model\Domains\Employee.cs" />
     <Compile Include="Model\Domains\EmployeedTime.cs" />
     <Compile Include="Model\Domains\Group.cs" />
