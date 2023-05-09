@@ -25,6 +25,7 @@ namespace MiniSystemHR_WPF.ViewModels
 
         public MainViewModel()
         {
+            UserLogin();
             AddEmployeeCommand = new RelayCommand(AddEditEmployee);
             EditEmployeeCommand = new RelayCommand(AddEditEmployee, CanEditDeleteEmployee);
             DissmissEmployeeCommand = new AsyncRelayCommand(DissmissEmployee, CanEditDeleteEmployee);
@@ -105,8 +106,6 @@ namespace MiniSystemHR_WPF.ViewModels
             }
             else
             {
-                var loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
                 RefreshEmployees();
                 InitGroups();
             }
@@ -191,6 +190,12 @@ namespace MiniSystemHR_WPF.ViewModels
         {
             var ChangeSettingsWindows = new UserSettingsView(true);
             ChangeSettingsWindows.ShowDialog();
+        }
+
+        private void UserLogin()
+        {
+            var loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
         }
     }
 }

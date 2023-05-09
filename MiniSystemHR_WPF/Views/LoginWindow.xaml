@@ -4,21 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniSystemHR_WPF.Views"
-         xmlns:converters="clr-namespace:MiniSystemHR_WPF.Model.Converters"
+        xmlns:converters="clr-namespace:MiniSystemHR_WPF.Model.Converters"
         mc:Ignorable="d"
         Title="LoginWindow" Height="400" Width="400"
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Name="LoginWindowView">
+        Name="LoginWindowView_Window">
     <Window.Resources>
         <converters:LoginParamsConverter x:Key="loginParamsConverter"/>
 
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="orange"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="25"/>            
+        </Style>
+        <Style TargetType="{x:Type PasswordBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                </Trigger>
+                <Trigger Property="Validation.HasError" Value="False">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
 
@@ -39,11 +49,10 @@
         <StackPanel Grid.Row="2">
             <Label Content="Hasło"/>
             <PasswordBox
-                
-                Name="PasswordBox"
+
+                x:Name="PasswordBox"
                 Margin="50,10,50,0"
                 FontSize="20" 
-                Background="Transparent"
                 Foreground="Gainsboro"
                 HorizontalContentAlignment="Center"/>
         </StackPanel>
@@ -52,7 +61,7 @@
             <Button Command="{Binding ConfirmCommand}" Content="Zaloguj" Height="30" Width="100" Margin="10" Foreground="Green" Background="Transparent">
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource loginParamsConverter}">
-                        <Binding ElementName="LoginWindowView" />
+                        <Binding ElementName="LoginWindowView_Window" />
                         <Binding ElementName="PasswordBox" />
                     </MultiBinding>
                 </Button.CommandParameter>

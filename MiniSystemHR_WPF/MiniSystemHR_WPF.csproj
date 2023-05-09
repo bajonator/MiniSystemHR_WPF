@@ -90,7 +90,6 @@
     <Compile Include="Model\LoginParams.cs" />
     <Compile Include="Model\LoginSettings.cs" />
     <Compile Include="Model\UserSettings.cs" />
-    <Compile Include="Model\PasswordBoxAssistant.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="ViewModels\AddEditEmploeeViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

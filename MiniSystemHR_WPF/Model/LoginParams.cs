@@ -10,10 +10,10 @@ namespace SystemHR_WPF.Model
 {
     public class LoginParams
     {
-        public LoginParams()
-        {
-            Window = new Window();
-        }
+        //public LoginParams()
+        //{
+        //    Window = new Window();
+        //}
         public Window Window { get; set; }
         public PasswordBox PasswordBox { get; set; }
     }

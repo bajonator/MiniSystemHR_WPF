@@ -40,10 +40,6 @@ namespace MiniSystemHR_WPF.ViewModels
 
             if (Login())
             {
-                MainWindow mainWindow = new MainWindow();
-                Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
-                Application.Current.MainWindow = mainWindow;
-                mainWindow.ShowDialog();
                 CloseWindow(login.Window);
             }
         }
